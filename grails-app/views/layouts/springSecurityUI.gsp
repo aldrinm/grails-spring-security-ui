@@ -50,7 +50,7 @@
 <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon"/>
 
 <g:layoutHead/>
-
+<r:layoutResources />
 </head>
 
 <body>
@@ -185,6 +185,6 @@
 <g:render template='/includes/ajaxLogin' plugin='spring-security-ui'/>
 
 <s2ui:showFlash/>
-
+<r:layoutResources />
 </body>
 </html>

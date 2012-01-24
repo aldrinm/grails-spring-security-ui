@@ -43,9 +43,9 @@ class RegisterController extends AbstractS2UiController {
 		}
 
 		String salt = saltSource instanceof NullSaltSource ? null : command.username
-		String password = encodePassword(command.password, salt)
+//		String password = encodePassword(command.password, salt)
 		def user = lookupUserClass().newInstance(email: command.email, username: command.username,
-				password: password, accountLocked: true, enabled: true)
+				password: command.password, accountLocked: true, enabled: true)
 		if (!user.validate() || !user.save()) {
 			// TODO
 		}
