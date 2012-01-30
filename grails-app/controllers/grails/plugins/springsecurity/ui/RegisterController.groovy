@@ -30,6 +30,7 @@ class RegisterController extends AbstractS2UiController {
 
 	def mailService
 	def saltSource
+    static def simpleCaptchaService
 
 	def index = {
 		[command: new RegisterCommand()]
@@ -239,6 +240,12 @@ class RegisterController extends AbstractS2UiController {
 			return 'command.password2.error.mismatch'
 		}
 	}
+
+	static final captchaValidator = { value, command ->
+		if (!simpleCaptchaService.validateCaptcha(value)) {
+			return 'command.captcha.error.mismatch'
+		}
+	}
 }
 
 class RegisterCommand {
@@ -247,6 +254,7 @@ class RegisterCommand {
 	String email
 	String password
 	String password2
+    String captcha
 
 	static constraints = {
 		username blank: false, validator: { value, command ->
@@ -261,6 +269,7 @@ class RegisterCommand {
 		email blank: false, email: true
 		password blank: false, validator: RegisterController.passwordValidator
 		password2 validator: RegisterController.password2Validator
+		captcha validator: RegisterController.captchaValidator
 	}
 }
 

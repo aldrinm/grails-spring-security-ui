@@ -9,7 +9,7 @@
 
 <p/>
 
-<s2ui:form width='650' height='300' elementId='loginFormContainer'
+<s2ui:form width='650' height='350' elementId='loginFormContainer'
            titleCode='spring.security.ui.register.description' center='true'>
 
 <g:form action='register' name='registerForm'>
@@ -37,6 +37,8 @@
 		<s2ui:passwordFieldRow name='password2' labelCode='user.password2.label' bean="${command}"
                              size='40' labelCodeDefault='Password (again)' value="${command.password2}"/>
 
+        <s2ui:captchaFieldRow name='captcha' labelCode='captcha.label' bean="${command}"
+                            size='40' labelCodeDefault='Type the characters in the box' />
 	</tbody>
 	</table>
 

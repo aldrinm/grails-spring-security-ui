@@ -87,6 +87,28 @@ class SecurityUiTagLib {
 		"""
 	}
 
+	def captchaFieldRow = { attrs ->
+        String labelCodeDefault = attrs.remove('labelCodeDefault')
+        String name = getRequiredAttribute(attrs, 'name', 'captchaFieldRow')
+        String labelCode = getRequiredAttribute(attrs, 'labelCode', 'captchaFieldRow')
+        def bean = getRequiredAttribute(attrs, 'bean', 'captchaFieldRow')
+        def fieldAttributes = [name: name] + attrs
+
+        out << """
+        <tr class="prop">
+			<td valign="top" class="name">
+			  <label for="${name}">${message(code: labelCode, default: labelCodeDefault)}</label>
+			</td>
+			<td valign="top" class="value  ${hasErrors(bean: bean, field: name, 'errors')}">
+			    <img src="${createLink(controller: 'simpleCaptcha', action: 'captcha')}"/>
+			    <br />
+                ${textField(fieldAttributes)}
+                ${fieldErrors(bean: bean, field: name)}
+			</td>
+        </tr>
+        """
+	}
+
 	def dateFieldRow = { attrs ->
 		String labelCodeDefault = attrs.remove('labelCodeDefault')
 		String name = getRequiredAttribute(attrs, 'name', 'dateFieldRow')

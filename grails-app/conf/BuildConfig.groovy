@@ -28,6 +28,7 @@ grails.project.dependency.resolution = {
         runtime ':jquery:1.7.1'
         runtime ':jquery-ui:1.8.15'
         runtime ':famfamfam:1.0.1'
+        runtime ':simple-captcha:0.7.1'
 
     }
 }
