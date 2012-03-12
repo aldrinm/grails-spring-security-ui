@@ -334,7 +334,7 @@ class SecurityUiTagLib {
 
 		out << """
 		<div class="$classes" id="${elementId}"
-		     style="width: ${width}; height: ${height}px; padding: 5px; text-align: center; position: relative;">
+		     style="width: ${width}; height: ${height}px; padding: 5px; position: relative;">
 
 		<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix s2ui_center" style='padding: 10px'>
 		<span style="-moz-user-select: none;" unselectable="on" class="ui-dialog-title">
