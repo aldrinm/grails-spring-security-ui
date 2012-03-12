@@ -3,4 +3,6 @@
 /testapps.config.groovy
 /grails-spring-security-ui-*.zip
 /target
+*.iml
+/.idea
 
